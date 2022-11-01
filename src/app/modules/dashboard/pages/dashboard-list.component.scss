@@ -15,4 +15,10 @@
         .search{
                 min-width: 400px;
         }
+        .text-center{
+         max-height: 200px ;
+         overflow-x: scroll;
+         display: flex;
+         flex-wrap: nowrap;
+        }
 }

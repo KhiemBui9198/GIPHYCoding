@@ -1,7 +1,12 @@
 <div class="album py-5 bg-light">
   <div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-indicators">
+    <div class="container ">
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <h2>Trending</h2>
+
+      </div>
+      <!--  <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
           aria-label="Slide 1" aria-current="true"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"
@@ -11,20 +16,8 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"
           class=""></button>
       </div>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col">
-            Column
-          </div>
-          <div class="col">
-            Column
-          </div>
-          <div class="col">
-            Column
-          </div>
-        </div>
-      </div>
-      <!-- <div class="carousel-inner">
+  
+      <div class="carousel-inner">
         <div class="carousel-item active">
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
             src="https://wallpaperaccess.com/full/7445.jpg" alt="">
@@ -42,17 +35,15 @@
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
             src="https://wallpaper.dog/large/9990.jpg" alt="">
         </div>
-      </div> -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      </div>
+      <div class="carousel-inner">
+        <div class="row grid text-center">
+          <div *ngFor="let giphy of giphyTrendings" class="col">
+            <a width="auto" height="auto" (click)="viewDetail(giphy)">
+            <img width="200px" height="100px" [src]="giphy.images.downsized.url" /></a>
+          </div>
+        </div>
+      </div>-->
     </div>
     <div class="carousel slide">
       <nav class="navbar bg-light">
@@ -66,21 +57,14 @@
       </nav>
     </div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3 item-list">
-      <div class="col" *ngFor="let giphy of giphys">
-          <a width="auto" height="auto"  (click)="viewDetail(giphy)" >
-          <div class="card shadow-sm"> 
-            <img   width="auto" height="auto" [src]="giphy.images.downsized.url" />
-          </div> </a>
+      <div class="col" *ngFor="let giphya of giphyRandoms">
+        <a width="auto" height="auto" (click)="viewDetail(giphya)">
+          <div class="card shadow-sm">
+            <img width="auto" height="auto" [src]="giphya.images.downsized.url" />
+          </div>
+        </a>
       </div>
     </div>
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-          <p class="float-end mb-1">
-            <a href="#">Back to top</a>
-          </p>
-      </ul>
-    </nav>
-
   </div>
 </div>
 <div>

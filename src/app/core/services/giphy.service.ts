@@ -22,8 +22,8 @@ export class GiphyService {
                 })
             );;
          };
-        getAllGifs(){
-            const url = 'https://api.giphy.com/v1/gifs/trending?api_key=ei34ea7Bgbzvgjn5rjBeWho6JfIv8dFy&limit=25&rating=pg-13'
+        getRamdomGifs(data: any){
+            const url = 'https://api.giphy.com/v1/gifs/random?api_key=ei34ea7Bgbzvgjn5rjBeWho6JfIv8dFy&tag=&rating=g'
             return this.httpClient.get(url)
             .pipe(
                 catchError((err) => {
@@ -32,7 +32,7 @@ export class GiphyService {
             );;
         };
         getSearchGifs(data: any) {
-            const url = ('https://api.giphy.com/v1/gifs/search?api_key=ei34ea7Bgbzvgjn5rjBeWho6JfIv8dFy&q='+data+'&limit=25&offset=1&rating=pg-13&lang=en');
+            const url = ('https://api.giphy.com/v1/gifs/search?api_key=ei34ea7Bgbzvgjn5rjBeWho6JfIv8dFy&q='+ data+'&limit=25&offset=1&rating=pg-13&lang=en');
             return this.httpClient.get(url)
             .pipe(
                 catchError((err) => {

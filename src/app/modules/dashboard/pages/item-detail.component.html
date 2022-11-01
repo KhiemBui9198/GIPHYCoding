@@ -1,22 +1,59 @@
-<div class="album py-5 bg-light">
-  <div class="container">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img [src]="giphy.images.downsized.url" class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">{{giphy.title}}</h5>
-          <p type="datetime-local" class="card-text">{{giphy.import_datetime}}</p>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control embed_url" placeholder="Recipient's username" aria-label="" aria-describedby="button-addon2" [value]="giphy.embed_url
-            " #Code>
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="copyMessage(Code)">Copy {{embed}}</button>
+
+
+<div class="container py-4">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img [src]="giphy.images.downsized.url" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{giphy.title}}</h5>
+            <p type="datetime-local" class="card-text">{{giphy.import_datetime}}</p>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control embed_url" placeholder="Recipient's username" aria-label="" aria-describedby="button-addon2" [value]="giphy.embed_url
+              " #Code>
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="copyMessage(Code)">Copy {{embed}}</button>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
+  </div>
+  <div class="list-group w-auto">
+    <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+      <img [src]="giphy.user.baner_image" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+      <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+          <h6 class="mb-0">Source</h6>
+          <a [href]="giphy.source" class="icon-link d-inline-flex align-items-center">
+            {{giphy.slug}}
+            <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+          </a>
+        </div>
+      </div>
+    </a>
+    <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+      <img [src]="giphy.user.avatar_url" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+      <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+          <h6 class="mb-0">Upload by</h6>
+          <p class="mb-0 opacity-75">  {{giphy.user.display_name}}</p>
+        </div>
+      </div>
+    </a>
+    <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+      <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+          <h6 class="mb-0">Another by {{giphy.user.display_name}}</h6>
+          <a [href]="giphy.user.profile_url" class="icon-link d-inline-flex align-items-center">
+            {{giphy.user.display_name}} profile
+            <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+          </a>
+        </div>
+      </div>
+    </a>
   </div>
 </div>
 <div>

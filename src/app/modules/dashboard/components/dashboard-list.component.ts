@@ -12,7 +12,8 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class DashboardListComponent implements OnInit {
   searchInput = new FormControl('');
   subs: any[] = [];
-  giphys: any[] = [];
+  giphyTrendings: any[] = [];
+  giphyRandoms: any[] = [];
   panigation:any;
   playerName: any = 'dd'
   constructor(
@@ -22,18 +23,24 @@ export class DashboardListComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.giphyService.getTrendingGifs().subscribe(
-      (response: any) => { this.giphys = response.data;
+      (response: any) => { this.giphyTrendings = response.data;
         this.panigation = response.panigation
+        this.getRamdom();
        }
-    )
-  }
-   search() {
+    );
+  };
+  search() {
     if (this.searchInput.value != "") {
       this.giphyService.getSearchGifs(this.searchInput.value).subscribe(
-        (response: any) => { this.giphys = response.data }
+        (response: any) => { this.giphyRandoms = response.data }
       )
     }
   }
+  getRamdom(){
+    this.giphyService.getSearchGifs("a").subscribe(
+      (response: any) => { this.giphyRandoms = response.data}
+    )
+  };
   viewDetail(item:any){
     this.router.navigateByUrl(`dashboard/view/${item.id}`);
   }
