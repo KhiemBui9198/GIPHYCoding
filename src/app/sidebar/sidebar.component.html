@@ -1,0 +1,21 @@
+<div class="sidebar" [ngClass]="{ 'expanded': isExpanded }">
+        <div class="header">
+          <h1 class="title">
+           KM
+          </h1>
+          <div class="toggle" (click)="handleSidebarToggle()">
+            <span class="chevron"></span>
+          </div>
+        </div>
+        <div class="content">
+          <div class="link"*ngFor="let link of navLinks" [routerLink]="[link.link]" routerLinkActive >
+            <div class="content" >
+              <div class="icon">
+                <i class="bi" [ngClass]="[link.icon]"></i>
+              </div>
+              <div class="title"> {{link.label}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"></div>
+      </div>

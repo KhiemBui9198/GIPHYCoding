@@ -1,0 +1,24 @@
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="giphy.images.downsized.url" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{giphy.title}}</h5>
+          <p type="datetime-local" class="card-text">{{giphy.import_datetime}}</p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control embed_url" placeholder="Recipient's username" aria-label="" aria-describedby="button-addon2" [value]="giphy.embed_url
+            " #Code>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="copyMessage(Code)">Copy {{embed}}</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div>
+  <app-news></app-news>
+</div>
